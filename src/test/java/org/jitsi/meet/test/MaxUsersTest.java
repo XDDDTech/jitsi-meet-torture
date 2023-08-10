@@ -40,7 +40,7 @@ public class MaxUsersTest
     /**
      * Number of participants in the call.
      */
-    public static int MAX_USERS = 3;
+    public static int MAX_USERS = 8;
     
     /**
      * The property to change MAX_USERS variable.
@@ -81,7 +81,7 @@ public class MaxUsersTest
             // Assuming we have 2 participants already started we have to
             // start MAX_USERS - 2 participants more to have MAX_USERS
             // participants in the call in order to exceed the limit.
-            Participant[] participants = new Participant[MAX_USERS - 2];
+            WebParticipant[] participants = new WebParticipant[MAX_USERS - 2];
             try
             {
                 for (int i = 0; i < participants.length; i++)
@@ -90,6 +90,7 @@ public class MaxUsersTest
                         this.participants
                             .createParticipant("web.participant" + (i + 4));
                     participants[i].joinConference(getJitsiMeetUrl());
+                    participants[i].muteAudio(true);
                 }
                 // Check if the error dialog is displayed for
                 // the last participant.

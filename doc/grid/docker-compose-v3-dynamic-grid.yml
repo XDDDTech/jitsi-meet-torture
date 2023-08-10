@@ -4,7 +4,7 @@
 version: "3"
 services:
   node-docker:
-    image: selenium/node-docker:4.9.1-20230508
+    image: selenium/node-docker:4.11.0
     volumes:
       - ./assets:/opt/selenium/assets
       - ./config.toml:/opt/bin/config.toml
@@ -18,7 +18,7 @@ services:
       - SE_NODE_SESSION_TIMEOUT=60
 
   selenium-hub:
-    image: selenium/hub:4.9.1-20230508
+    image: selenium/hub:4.11.0
     container_name: selenium-hub
     ports:
       - "4442:4442"
